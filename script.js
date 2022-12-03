@@ -3,28 +3,29 @@ var victories = 0;
 var loses = 0;
 var draws = 0;
 function computerPlay(plays){
-    let index = Math.floor(Math.random()*3)+1;
-    return plays[index-1];
+    let index = Math.floor(Math.random()*2);
+    return plays[index];
 }
 function playRound(playerSelection, computerSelection, plays){
     if (playerSelection == computerSelection){
         draws++;
         return `It's a Draw! Both players played ${playerSelection}!`;
     }
-    else if(plays.indexOf(playerSelection) < plays.indexOf(computerSelection)){
-        victories++;
-        return `Player wins! ${playerSelection} beats ${computerSelection}.`;
-    }
-    else{
+    else if(plays.indexOf(playerSelection) == (plays.indexOf(computerSelection)-1) || (plays.indexOf(playerSelection)== 2 & plays.indexOf(computerSelection)==0)){
         loses++;
         return `Computer wins! ${computerSelection} beats ${playerSelection}.`;
+
+    }
+    else{
+        victories++;
+        return `Player wins! ${playerSelection} beats ${computerSelection}.`;
     }
 }
 function game(){
     alert("Welcome to Rock - Scissors - Paper!");
     alert("You're going to play against computer. ");
     alert("Let's start!");
-    const possiblePlays = ["rock", "scissors", "paper"];
+    const possiblePlays = ["rock", "paper", "scissors"];
     var results = "";
     for(let i = 0; i < 5; i++){
         while(true){
