@@ -29,7 +29,7 @@ function game(){
     var results = "";
     for(let i = 0; i < 5; i++){
         while(true){
-            var playerChoice = prompt("Select and item(rock, scissors, paper): ").toLowerCase(); 
+            var playerChoice = (prompt("Select and item(rock, scissors, paper): ").toLowerCase()).replaceAll(' ', ''); 
             if(possiblePlays.includes(playerChoice)){
                 break;
             }
