@@ -1,7 +1,6 @@
-'use strict'
-var victories = 0;
-var loses = 0;
-var draws = 0;
+let victories = 0;
+let loses = 0;
+let draws = 0;
 function computerPlay(plays){
     let index = Math.floor(Math.random()*2);
     return plays[index];
